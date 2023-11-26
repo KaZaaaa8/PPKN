@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kelompok Gatau</title>
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|IBM+Plex+Sans:600" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+</head>
+
+<body class="is-boxed has-animations">
+
+    <audio autoplay id="myAudio" src="dist/uud.mp3"></audio>
+
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <span class="navbar-brand mb-0 h1">Kelompok Gatau</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy">
+                            <h2 class="hero-title mt-0" style="font-size: 30px;">Undang Undang Dasar Negara Republik
+                                Indonesia Tahun 1945</h2>
+                            <h3 class="hero-title mt-0" style="text-align: center;"> Pembukaan</h3>
+
+                            <p id="materi"></p>
+
+                        </div>
+                        <div class="hero-media">
+                            <div class="header-illustration">
+                                <img class="header-illustration-image asset-light"
+                                    src="dist/images/header-illustration-light.svg" alt="Header illustration">
+                                <img class="header-illustration-image asset-dark"
+                                    src="dist/images/header-illustration-dark.svg" alt="Header illustration">
+                            </div>
+                            <div class="hero-media-illustration">
+                                <img class="hero-media-illustration-image asset-light"
+                                    src="dist/images/hero-media-illustration-light.svg" alt="Hero media illustration">
+                                <img class="hero-media-illustration-image asset-dark"
+                                    src="dist/images/hero-media-illustration-dark.svg" alt="Hero media illustration">
+                            </div>
+                            <div class="hero-media-container">
+                                <img class="hero-media-image asset-light" src="dist/images/gambar_uud.jpg"
+                                    alt="Hero media">
+                                <img class="hero-media-image asset-dark" src="dist/images/gambar_uud.jpg"
+                                    alt="Hero media">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dist/js/main.min.js"></script>
+    <script>
+        var index = 0;
+        var typingElement = document.getElementById("materi");
+        var myAudio = document.getElementById("myAudio");
+        var sentences = [
+            { time: 1, text: "Bahwa sesungguhnya Kemerdekaan itu ialah hak segala bangsa dan oleh sebab itu, maka penjajahan di atas dunia harus dihapuskan, karena tidak sesuai dengan perikemanusiaan dan perikeadilan." },
+            { time: 37, text: "Dan perjuangan pergerakan kemerdekaan Indonesia telah sampailah kepada saat yang berbahagia dengan selamat sentausa mengantarkan rakyat Indonesia ke depan pintu gerbang kemerdekaan Negara Indonesia, yang merdeka, bersatu, berdaulat, adil dan makmur." },
+            { time: 64, text: "Atas berkat rakhmat Allah Yang Maha Kuasa dan dengan didorongkan oleh keinginan luhur, supaya berkehidupan kebangsaan yang bebas, maka rakyat Indonesia menyatakan dengan ini kemerdekaannya." },
+            { time: 83, text: "Kemudian daripada itu untuk membentuk suatu Pemerintah Negara Indonesia yang melindungi segenap bangsa Indonesia dan seluruh tumpah darah Indonesia dan untuk memajukan kesejahteraan umum, mencerdaskan kehidupan bangsa, dan ikut melaksanakan ketertiban dunia yang berdasarkan kemerdekaan, perdamaian abadi dan keadilan sosial, maka disusunlah Kemerdekaan Kebangsaan Indonesia itu dalam suatu Undang-Undang Dasar Negara Indonesia, yang terbentuk dalam suatu susunan Negara Republik Indonesia yang berkedaulatan rakyat dengan berdasar kepada Ketuhanan Yang Maha Esa, Kemanusiaan yang adil dan beradab, Persatuan Indonesia dan Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam Permusyawaratan/Perwakilan, serta dengan mewujudkan suatu Keadilan sosial bagi seluruh rakyat Indonesia." },
+            {time: 154 }
+        ];
+
+        myAudio.addEventListener("timeupdate", function () {
+            for (var i = 0; i < sentences.length - 1; i++) {
+                if (myAudio.currentTime >= sentences[i].time && myAudio.currentTime < sentences[i + 1].time) {
+                    typingElement.innerHTML = sentences[i].text;
+                    break;  // Keluar dari loop setelah menemukan waktu yang cocok
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
